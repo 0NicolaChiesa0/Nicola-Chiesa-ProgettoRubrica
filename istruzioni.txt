@@ -1,0 +1,114 @@
+1 Avviare il programma Flask
+------------------------------
+1. Apri il terminale.
+2. Vai nella cartella dove c’è il file Python (es: app.py).
+3. Lancia il comando:
+   python nomefile.py
+4. Se tutto funziona, vedrai:
+   Running on http://127.0.0.1:5000
+   (Significa che il server è attivo)
+
+---
+Registrare un utente (POST)
+-------------------------------
+
+URL:
+
+   http://127.0.0.1:5000/utenti/registrazione
+
+Metodo: POST
+
+Body (JSON):
+{
+  "username": "mario",
+  "password": "1234",
+  "nome": "Mario",
+  "cognome": "Rossi",
+  "email": "mario@mail.com",
+  "residenza": "Roma"
+}
+
+Header:
+
+   Content-Type: application/json
+
+---
+Effettuare il login (POST)
+-------------------------------
+
+URL:
+
+   http://127.0.0.1:5000/utenti/login
+
+Metodo: POST
+
+Body (JSON):
+
+{
+  "username": "mario",
+  "password": "1234"
+}
+
+Header:
+
+   Content-Type: application/json
+
+
+---
+Usare il token per accedere a un endpoint protetto (GET)
+------------------------------------------------------------
+
+URL:
+
+   http://127.0.0.1:5000/utenti?username=mario
+
+Metodo: GET
+
+Header:
+
+   Authorization: Bearer <token>
+
+---
+Eliminare un utente (DELETE)
+--------------------------------
+URL:
+
+   http://127.0.0.1:5000/utenti/ID
+
+Esempio:
+
+   http://127.0.0.1:5000/utenti/1
+
+Metodo: DELETE
+
+Header:
+
+   Authorization: Bearer TUO_TOKEN
+
+
+---
+Eliminare un contatto (DELETE)
+----------------------------------
+URL:
+
+   http://127.0.0.1:5000/contatti/ID
+
+Esempio:
+
+   http://127.0.0.1:5000/contatti/1
+
+Metodo: DELETE
+
+Token: NON necessario
+
+
+
+Come vedere l'ID
+--------------------
+Per vedere gli ID dei contatti:
+
+   GET http://127.0.0.1:5000/contatti
+
+Per vedere l'ID di un utente:
+
+   GET http://127.0.0.1:5000/utenti?username=mario
